@@ -1,4 +1,5 @@
-#include"Ota.h"
+#include "Ota.h"
+#include "../local-config.h"
 
 #include <ArduinoOTA.h>
 
@@ -10,7 +11,7 @@ void Ota::begin() {
   // ArduinoOTA.setPort(8266);
 
   // Hostname defaults to esp8266-[ChipID]
-  ArduinoOTA.setHostname("jarvis");
+  ArduinoOTA.setHostname(ESP_HOSTNAME);
 
   // No authentication by default
   // ArduinoOTA.setPassword((const char *)"123");

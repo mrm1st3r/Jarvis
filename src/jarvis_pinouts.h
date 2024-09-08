@@ -30,12 +30,6 @@
 //   7      HS1     Handset control line 1
 //   8      HS0     Handset control line 0
 
-// Pin definition configurations.  Uncomment one of these lines, or define your own with DEFINE_PINS below.
-// #define JARVISDESK_DIGISTUMP_OAK_V1
-// #define JARVISDESK_WEMOS_D1MINI_V1
-// #define JARVISDESK_WEMOS_D1MINI_V2
-#define JARVISDESK_NODEMCU_V3
-
 // -----------------------------------------------------------------------------
 
 #define NC -1   // Use NC for pins that are not connected or not used
@@ -76,6 +70,14 @@
     // RJ45Pin:  1   2   4   6   7   8
     //  Signal: HS3 DTX HTX HS2 HS1 HS0
     DEFINE_PINS(D2, D7, D8, D6, D1, D0);
+#endif
+
+#ifdef JARVISDESK_RJ12_HUZZAH
+
+    // Pinouts for ESp8266 Adafruit Huzzah PCB
+    // RJ12Pin:  1   2   4   6   7   8
+    //  Signal: HS3 DTX HTX HS2 HS1 HS0
+    DEFINE_PINS(NC, 12, 13, NC, NC, NC);
 #endif
 
 inline bool is_pin_connected(int pin) { return pin != NC; }
