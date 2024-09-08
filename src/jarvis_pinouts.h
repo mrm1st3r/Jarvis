@@ -1,5 +1,6 @@
 #pragma once
 #include <Arduino.h>
+#include "../local-config.h"
 
 // There are a few different protocols for controllers.
 // Uncomment the one you have.

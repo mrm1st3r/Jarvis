@@ -2,13 +2,14 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266mDNS.h>
 #include <WiFiUdp.h>
+#include <AdafruitIO_WiFi.h>
 
 #include "local-config.h"
+#include "src/flash.h"
 #include "src/JarvisDesk.h"
 #include "src/Ota.h"
 #include "src/TelnetLogger.h"
 
-#include "AdafruitIO_WiFi.h"
 const int LED_PIN = LED_BUILTIN;
 
 AdafruitIO_WiFi io(IO_USERNAME, IO_KEY, WIFI_SSID, WIFI_PASS);
@@ -16,9 +17,6 @@ AdafruitIO_Group *jarvis_sub = io.group("jarvis");
 
 JarvisDesk Jarvis;
 Ota ota;
-
-// FIXME: Move to flasher.h
-void flash(unsigned count = 0, float secs = 0.3);
 
 void setup() {
   pinMode(LED_PIN, OUTPUT);
