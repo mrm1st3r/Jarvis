@@ -17,8 +17,12 @@ COMPILE_FLAGS += $(TARGET_FLAGS) --warnings default
 .PHONY: all build upload
 all: upload
 
+prepare:
+	arduino-cli core install esp8266:esp8266 --config-file ./.cli-config.yml \
+	&& arduino-cli lib install "Adafruit IO Arduino"
+
 build:
-	arduino-cli compile $(COMPILE_FLAGS) .
+	arduino-cli compile $(COMPILE_FLAGS) --config-file ./.cli-config.yml .
 
 upload: build
 	$(ESPOTA) -i $(JARVISDESK) -p 8266 -f $(BUILD_DIR)/Jarvis.ino.bin
