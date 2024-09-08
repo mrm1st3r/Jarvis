@@ -89,7 +89,7 @@ void ProtocolUplift::decode() {
     if (argv[0] == 0 ){
         if(argv[1] == 0x80) // Desk is locked
           Log.println("Desk Height Locked");
-        if(argv[1]) = 0x40) // E13 Leg uneven error? Not Documented by Uplift
+        if(argv[1] == 0x40) // E13 Leg uneven error? Not Documented by Uplift
           Log.println("Error: E13");
       }
 
